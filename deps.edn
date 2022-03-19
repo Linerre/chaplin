@@ -1,7 +1,7 @@
-{:paths ["resources" "src" "target"]
+{:paths ["resources" "src/clj" "src/cljs"]
 
  :deps
- {cljs-ajax/cljs-ajax                    {:mvn/version "0.8.4"},
+ {,
   clojure.java-time/clojure.java-time    {:mvn/version "0.3.3"},
   com.bhauman/figwheel-main              {:mvn/version "0.2.16"},
   com.github.seancorfield/next.jdbc      {:mvn/version "1.2.761"},
@@ -17,15 +17,20 @@
   metosin/ring-http-response             {:mvn/version "0.9.3"},
   mount/mount                            {:mvn/version "0.1.16"},
   org.clojure/clojure                    {:mvn/version "1.10.3"},
-  org.clojure/clojurescript              {:mvn/version "1.10.758"},
   org.postgresql/postgresql              {:mvn/version "42.3.1"},
   org.xerial/sqlite-jdbc                 {:mvn/version "3.34.0"},
-  reagent/reagent                        {:mvn/version "1.1.1"},
   ring/ring-core                         {:mvn/version "1.9.4"},
   ring/ring-devel                        {:mvn/version "1.9.4"},
   ring/ring-defaults                     {:mvn/version "0.3.3"},
   ring/ring-jetty-adapter                {:mvn/version "1.9.4"}}
+
  :aliases
- {:test {:extra-paths ["test"]}}
+ {:cljs {:extra-paths ["src/cljs"],
+         :extra-deps {cljs-ajax/cljs-ajax       {:mvn/version "0.8.4"},
+                      org.clojure/clojurescript {:mvn/version "1.11.4"},
+                      reagent/reagent           {:mvn/version "1.1.1"},
+                      re-frame/re-frame         {:mvn/version "1.2.0"},
+                      thheller/shadow-cljs      {:mvn/version "2.15.3"}}},
+  :test {:extra-paths ["test"]}}
 
  }
