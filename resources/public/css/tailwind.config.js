@@ -2,6 +2,16 @@ module.exports = {
   content: ["../*.html", "../js/*.js"],
   theme: {
     extend: {
+      spacing: {
+        '22': '5.5rem',
+        'half': '40%'
+      },
+
+      rotate: {
+        '60' : '60deg',
+        '230': '230deg'
+      },
+
       colors: {
         green: {
           750: '#0b7261'

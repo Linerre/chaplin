@@ -2,11 +2,94 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8"/>
+    <link href="css/foundation-icons.css" rel="stylesheet"/>
+    <link href="css/main.css" rel="stylesheet"/>
     <title>Chaplin</title>
   </head>
   <body>
-    <h1>Welcome to chaplin!</h1>
+
+    <nav class="my-2 flex flex-col sm:flex-row flex-wrap items-center justify-center">
+      <div class="flex my-2 px-2 text-left">
+        <a href="http://localhost:9321">
+          <img class="w-12" alt="Site Icon - Chaplin" src="img/chaplin-200x200.png"/>
+        </a>
+      </div>
+      <ul class="flex flex-row gap-x-6 justify-center">
+        <li>
+          <a href="https://guides.nyu.edu/copyright"
+             target="_blank"
+             class="underline hover:text-blue-350">
+            Copyright
+          </a>
+        </li>
+        <li>
+          <a href="https://shanghai.nyu.edu/academics/library/policy"
+             target="_blank"
+             class="underline hover:text-blue-350">
+            Policy
+          </a>
+        </li>
+        <li>
+          <a href="https://library.nyu.edu/nyu-returns/collections-access/#scanning"
+             target="_blank"
+             class="underline hover:text-blue-350">
+            Scanning Services
+          </a>
+        </li>
+        <li>
+          <a href="https://shanghai.nyu.edu/academics/library/services/course-reserves"
+             target="_blank"
+             class="underline hover:text-blue-350">
+            Linking Services
+          </a>
+        </li>
+        <li>
+          <a href="mailto:zl37@nyu.edu"
+             class="underline hover:text-blue-350">Contact</a>
+        </li>
+        <li>
+          <a href="https://github.com/Linerre/chaplin"
+             target="_blank"
+             class="underline hover:text-blue-350">About</a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <header class="w-full my-6">
+      <div class="flex flex-row items-center justify-center p-2">
+        <span class="text-purple-950 text-5xl z-10">Chap
+        </span>
+        <img class="h-22 -ml-6 -mr-8 z-0" alt="stick icon image" src="img/stick-icon.svg"/>
+        <span class="text-purple-950 text-5xl z-10">in</span>
+      </div>
+    </header>
+
+    <div class="w-full flex justify-center gap-x-2 py-2">
+      <i class="fi-page ml-2"></i>
+      <span class="border-b-4 border-red-650 pb-1">
+        Find scanned PDF chapters, sections, or pages
+      </span>
+    </div>
+
+    <!-- Search entry point -->
     <div id="app"></div>
+
+
+    <!-- footer -->
+    <footer class="w-full bg-green-750 py-2 px-2 absolute bottom-0">
+      <div class="px-2">
+        <p class="text-center italic text-slate-100">
+          <span class="text-4xl text-white">&ldquo;</span>
+          Time heals, and experience teaches that the secret of happiness is in service to others.
+          <span class="text-4xl text-white">&rdquo;</span>
+        </p>
+      </div>
+      <div class="contribution pt-4 pb-2 mt-4 flex flex-col">
+        <p class="text-sm text-center text-white">Built with Clojure(Script)</p>
+        <p class="text-sm text-center text-white">Thanks Jade for her hard work</p>
+      </div>
+    </footer>
     <script src="js/app.js"></script>
   </body>
 </html>
