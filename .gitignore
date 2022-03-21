@@ -1,7 +1,9 @@
 node_modules/
 out/
 img/
+target/
 resources/public/js/
 foundation-*
+.shadow-cljs/
 .cpcache/
 .nrepl-port
