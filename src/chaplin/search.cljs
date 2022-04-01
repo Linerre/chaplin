@@ -1,5 +1,6 @@
 (ns chaplin.search
   (:require
+   [ajax.core :refer [POST GET]]
    [goog.dom :as gdom]
    [reagent.dom :as rdom]
    [reagent.core :as rc]))
@@ -8,39 +9,43 @@
   "Search box fregment"
   []
   [:<>
+   [:label {:for "uquery"}]
    [:input.w-half.border-solid.border-2.border-gray-600.p-2
     {:type "text",
-     :id "query",
-     :name "user_query",
+     :id "uquery",
+     :name "uquery",
      :placeholder " Title, Author, ISBN, barcode ... "}]])
 
 (defn drop-box
   "Drop-down menu"
   []
   [:select#part-type.p-2.border-2.border-gray-900.bg-purple-950.text-white
-   [:option {:value "chapter"} "Chapter"]
-   [:option {:value "section"} "Section"]
-   [:option {:value "part"} "Part"]
-   [:option {:value "lesson"} "Lesson"]
-   [:option {:value "pages"} "Pages"]])
+   {:id "ptype",
+    :name "ptype"}
+   [:option {:name "chapter", :value "chapter"} "Chapter"]
+   [:option {:name "section", :value "section"} "Section"]
+   [:option {:name "part",    :value "part"} "Part"]
+   [:option {:name "lesson",  :value "lesson"} "Lesson"]
+   [:option {:name "pages",   :value "pages"} "Pages"]])
+
+;; in {:attr "val"}, "val" can be :val
+;; but :val will be converted to "val" for DOM anyway
 (defn search-button
   "Search button fragment"
   []
   [:<>
    [:button#btn.bg-yellow-450.text-black.font-bold.p-2
-    {:type "reset"} "Search"]])
+    {:type "submit"} "Search"]])
 
 (defn form-component
   "Construct the form section"
   []
   [:form.my-4.py-4
-   {:action "url" :method "post"
+   {:action "/result", :method "GET",
     :class "w-full flex flex-row gap-x-4 justify-center my-4"}
    [drop-box]
    [search-box]
    [search-button]])
-
-
 
 (defn simple-component []
   [:div
