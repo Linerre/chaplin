@@ -7,7 +7,7 @@
    [ring.util.http-predicates :as pred]
    [reitit.ring :as ritr]))
 
-(defn handle-home
+(defn handle-result
   "Handle home page request."
   [req]
   (resp/ok (hp/html [:html
@@ -23,22 +23,8 @@
 
 ;; routes
 (def my-routes
-  [["/" {:get handle-home}]])
-
-;; TODO
-;; [ ] Figure out why the following code doesn't work as expected
-(comment
-  "Requst (as a map) always gets passed to a route fn"
-  ["/reserves" {:name ::reserves
-              :file {:name "res"
-                     :type "html"
-                     :path "html/res.html"}
-              :love "clojure"
-              :hate "javascript"
-              :get (fn [{{:keys [name]} :file}]
-                     (resp/ok {:filename name}))}])
-;; expected: => {:filename res}
-;; got: => {:filename nil}
+  [
+   ["/result" {:post handle-result}]])
 
 ;;; ring-handler takes two args
 (comment

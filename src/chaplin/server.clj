@@ -16,8 +16,8 @@
 (defonce server (atom nil))
 
 (defn start-server [& args]
-  (reset! server (run-server #'app {:port 9321}))
-  (println "Server started on port 9321 successfully!"))
+  (reset! server (run-server #'app {:port 9322}))
+  (println "Server started on port 9322 successfully!"))
 
 (defn stop-server [& args]
   (when-not (nil? @server)
