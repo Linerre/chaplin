@@ -23,12 +23,14 @@
   ring/ring-defaults                     {:mvn/version "0.3.3"},
   ring/ring-jetty-adapter                {:mvn/version "1.9.4"}}
 
+ ;; In the future deps in shadow-cljs.edn can be moved here
  :aliases
- {:cljs {:extra-paths ["src/cljs"],
+ {:cljs {:extra-paths ["src"],
          :extra-deps {cljs-ajax/cljs-ajax       {:mvn/version "0.8.4"},
                       org.clojure/clojurescript {:mvn/version "1.11.4"},
                       reagent/reagent           {:mvn/version "1.1.1"},
                       re-frame/re-frame         {:mvn/version "1.2.0"},
+                      metosin/reitit            {:mvn/version "0.5.5"},
                       thheller/shadow-cljs      {:mvn/version "2.17.8"}}},
   :test {:extra-paths ["test"]}}
 
