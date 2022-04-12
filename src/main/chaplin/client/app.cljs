@@ -1,4 +1,4 @@
-(ns chaplin.search
+(ns chaplin.client.app
   (:require
    [ajax.core :refer [POST GET]]
    [goog.dom :as gdom]
@@ -19,20 +19,17 @@
         :err-handler #(.log js/console (str "error:" %))}))
 
 
-
-;; in {:attr "val"}, "val" can be :val
-;; but :val will be converted to "val" for DOM anyway
-
 (defn render-simple []
   (rdom/render
     [router/search-box]
-    ; (. js/document (getElementById "app"))
-    (js/document.getElementById "app")))
-
+    ;; (js/document.getElementById "app")
+    (. js/document (getElementById "app"))))
 
 (defn -main []
+  (.log js/console "App started!")
   (render-simple))
 
 (defn after-load! []
+  (.log js/console "Page refreshed!")
   (render-simple)
   )
