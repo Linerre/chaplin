@@ -3,6 +3,7 @@ out/
 img/
 target/
 resources/public/js/
+resources/public/css
 foundation-*
 .shadow-cljs/
 .cpcache/
