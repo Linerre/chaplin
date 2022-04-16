@@ -7,5 +7,9 @@
   },
   "devDependencies": {
     "@cljs-oss/module-deps": "^1.1.1"
+  },
+  "scripts": {
+    "postcss-watch": "postcss src/style/app.css -o resources/public/css/app.css --verbose -w",
+    "postcss-release": "postcss --env production style/app.css -o target/css/app.css"
   }
 }
