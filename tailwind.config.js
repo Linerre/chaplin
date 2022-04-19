@@ -1,5 +1,7 @@
 module.exports = {
-  content: ["../*.html", "../js/*.js"],
+  content: [
+    "./src/main/**/*.cljs",
+    "./src/test/**/*.cljs"],
   theme: {
     extend: {
       spacing: {
