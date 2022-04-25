@@ -1,4 +1,4 @@
-(ns chaplin.client.components.icon
+(ns client.components.icon
   (:require
    [reagent.core :as rc]
    [reagent.dom :as rdom]))

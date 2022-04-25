@@ -1,4 +1,4 @@
-(ns chaplin.client.components.header
+(ns client.components.header
   "Header section of the index page"
   (:require
    [reagent.core :as r]))

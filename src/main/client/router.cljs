@@ -1,4 +1,4 @@
-(ns chaplin.client.router
+(ns client.router
   "Client-side router"
   (:require
    [chaplin.client.pages.index :refer [search-box]]

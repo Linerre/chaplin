@@ -1,11 +1,11 @@
-(ns chaplin.client.app
+(ns client.app
   (:require
    [ajax.core :refer [POST GET]]
    [goog.dom :as gdom]
    [reagent.dom :as rdom]
-   [chaplin.client.components.nav :as nav]
-   [chaplin.client.components.header :as hd]
-   [chaplin.client.pages.index :as index]))
+   [client.components.nav :as nav]
+   [client.components.header :as hd]
+   [client.pages.index :as index]))
 
 (defn render-nav []
   (rdom/render

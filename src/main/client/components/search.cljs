@@ -1,4 +1,4 @@
-(ns chaplin.client.pages.index
+(ns client.pages.index
   (:require
    [reagent.core :as rc]))
 

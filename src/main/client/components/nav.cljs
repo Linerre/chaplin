@@ -1,4 +1,4 @@
-(ns chaplin.client.components.nav
+(ns client.components.nav
   (:require
    [reagent.core]))
 
