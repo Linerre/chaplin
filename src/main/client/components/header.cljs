@@ -3,8 +3,9 @@
   (:require
    [reagent.core :as r]))
 
-(defn header-frame
-  "The header area showing the site's name."
+;; Reusable headers, thus id is not applicable
+(defn index-header
+  "Header for index page."
   []
   [:header
    [:div.w-full.my-4.p-2.flex.items-center.justify-center
@@ -17,3 +18,10 @@
     [:i.fi-page.ml-2]
     [:span.pb-1.border-b-4.border-red-650
      "Find scanned PDF chapters, sections, or pages"]]])
+
+(defn about-header
+  "Header for about page."
+  [txt]
+  [:header.w-fit.mx-auto.my-2
+   [:h2.pr-1.py-1.text-2xl.font-bold txt]
+   [:div.h-1.w-full.bg-red-650]])
