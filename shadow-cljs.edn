@@ -1,6 +1,6 @@
 {:deps {:aliases [:client :test]},
  :builds {:dev   {:target :browser,
-                  :devtools {:after-load client.app/after-load!,
+                  :devtools {:after-load client.app/after-load,
                              :watch-dir  "resources/public",
                              :http-port  9321,
                              :http-root  "resources/public"},

@@ -6,7 +6,11 @@ module.exports = {
     extend: {
       spacing: {
         '22': '5.5rem',
-        'half': '40%'
+        'quar' : '25%',
+        'half' : '50%',
+        'meet' : '60%',
+        'triq' : '75%',
+        'near' : '90%',
       },
 
       rotate: {
@@ -19,8 +23,9 @@ module.exports = {
           750: '#0b7261'
         },
         purple: {
+          750: '#57068c',
+          900: '#433482',
           950: '#2e2459',
-          750: '#57068c'
         },
         red: {
           650: '#a72145',
