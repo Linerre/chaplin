@@ -3,6 +3,9 @@ module.exports = {
     "./src/main/**/*.cljs",
     "./src/test/**/*.cljs"],
   theme: {
+    screens: {
+      'tb': '680px',
+    },
     extend: {
       spacing: {
         '22': '5.5rem',
