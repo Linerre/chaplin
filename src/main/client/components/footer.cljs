@@ -2,27 +2,27 @@
   "Footer for the index page")
 
 (defn footer-frame
-  "Quotation block in the footer."
+  "Footer that holds quotation, copyright and misc info."
   [page quo]
-  [:footer#main-footer.w-full.pt-6.pb-2.bg-green-750
+  [:footer#main-footer.w-full.pb-2.bg-green-750
    {:class (if (= page "Home")
-             "fixed bottom-0 left-0"
-             "mt-2")}
-   [:p.w-triq.mx-auto.italic.text-sm.text-slate-50.text-center.font-bold
-    [:span
-     quo]]
-   [:div.h-fit.pt-4.pb-2.mt-4.flex.flex-col.gap-y-1.text-sm
-    [:p.text-center.text-white "Built with "
-     [:a.text-white.no-underline.hover:underline
-   {:href "https://clojure.org/index",
-    :target "_blank"}
-   "Clojure(Script)"]]
-    [:div.flex.gap-x-2.justify-center.relative.text-center.text-white
-     [:div
+             "fixed bottom-0 left-0")}
+   [:div.w-full.mb-4.py-4
+    [:p.w-near.mx-auto.text-center.text-sm
+     [:span.font-bold.italic.text-slate-50 quo]]]
+   [:div.flex.flex-col.justify-center.items-center.tb:items-end.tb:flex-row
+    [:p.flex-1.text-left.ml-4.text-white.text-sm
+     [:span "Copyright © 2022 Leon Lin"]]
+    [:div.flex-1.flex.flex-col.justify-center
+     [:p.mx-auto.text-center.text-white.text-sm
       [:span "Special thanks to Jade for her hard work"]]
-     [:div.absolute.left-8
-      [:span "© 2022 Leon Lin"]]
-     [:div.absolute.right-8.flex.gap-x-4.justify-center.text-lg
+     [:p.text-center.text-white.text-sm
+      "Built with "
+      [:a.text-white.no-underline.hover:underline
+       {:href "https://clojure.org/index",
+        :target "_blank"}
+       "Clojure(Script)"]]]
+    [:p.flex-1.flex.gap-x-4.justify-end.mr-4.text-white.text-lg
       [:a {:href "https://shanghai.nyu.edu/academics/library",
            :target "_blank"}
        [:i.fi-home]]
@@ -30,4 +30,4 @@
        [:i.fi-mail]]
       [:a {:href "https://github.com/Linerre/chaplin",
            :target "_blank"}
-       [:i.fi-social-github]]]]]])
+       [:i.fi-social-github]]]]])
