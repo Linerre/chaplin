@@ -8,3 +8,4 @@ foundation-*
 .shadow-cljs/
 .cpcache/
 .nrepl-port
+devlog.org
