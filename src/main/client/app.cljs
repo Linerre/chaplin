@@ -1,11 +1,10 @@
 (ns client.app
+  "The core namespace, the entry point of this application."
   (:require
    [ajax.core :refer [POST GET]]
-   [clojure.string :as str]
    [goog.dom :as gdom]
    [reagent.dom :as rdom]
    [re-frame.core :as rf]
-   [client.pages.index]
    [client.router :as router]
    [client.events.search]))
 
@@ -15,13 +14,12 @@
 
 (defn -main [& args]
   (router/init-router)
-  (rf/dispatch [:search/init])
+  (rf/dispatch [:search/init-db])
   (mount)
   (.log js/console "App started!"))
 
 (defn after-load [& args]
   (router/init-router)
-  ;; (rf/clear-subscription-cache!)
-  (rf/dispatch-sync [:search/init])
+  (rf/dispatch-sync [:search/init-db])
   (mount)
   (.log js/console "Page refreshed!"))
