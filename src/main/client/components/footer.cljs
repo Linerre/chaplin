@@ -7,9 +7,9 @@
   [:footer#main-footer.w-full.pb-2.bg-green-750
    {:class (if (= page "Home")
              "fixed bottom-0 left-0")}
-   [:div.w-full.mb-4.py-4
-    [:p.w-near.mx-auto.text-center.text-sm
-     [:span.font-bold.italic.text-slate-50 quo]]]
+   [:div.w-near.mb-4.mx-auto.py-4
+    [:p.w-triq.mx-auto.text-center.text-sm
+     [:span.italic.text-slate-50 quo]]]
    [:div.flex.flex-col.justify-center.items-center.tb:items-end.tb:flex-row
     [:p.flex-1.text-left.ml-4.text-white.text-sm
      [:span "Copyright © 2022 Leon Lin"]]
