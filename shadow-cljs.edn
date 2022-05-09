@@ -2,7 +2,7 @@
  :builds {:dev   {:target :browser,
                   :devtools {:after-load client.app/after-load,
                              :watch-dir  "resources/public",
-                             :http-port  9321,
+                             :http-port 9226,
                              :http-root  "resources/public"},
                   :output-dir "resources/public/js",
                   :asset-path "/js/app",
