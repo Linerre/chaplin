@@ -3,19 +3,17 @@
 
 (defn footer-frame
   "Footer that holds quotation, copyright and misc info."
-  [page quo]
-  [:footer#main-footer.w-full.pb-2.bg-green-750
-   {:class (if (= page "Home")
-             "fixed bottom-0 left-0")}
+  [quo]
+  [:footer#main-footer.h-fit.w-full.mt-auto.pb-2.bg-green-750
    [:div.w-near.mb-4.mx-auto.py-4
     [:p.w-triq.mx-auto.text-center.text-sm
      [:span.italic.text-slate-50 quo]]]
-   [:div.flex.flex-col.justify-center.items-center.tb:items-end.tb:flex-row
+   [:div.flex.flex-col.justify-center.items-center.pb-1.tb:items-end.tb:flex-row
     [:p.flex-1.text-left.ml-4.text-white.text-sm
      [:span "Copyright © 2022 Leon Lin"]]
     [:div.flex-1.flex.flex-col.justify-center
      [:p.mx-auto.text-center.text-white.text-sm
-      [:span "Special thanks to Jade for her hard work"]]
+      [:span "Special thanks to Jade"]]
      [:p.text-center.text-white.text-sm
       "Built with "
       [:a.text-white.no-underline.hover:underline
