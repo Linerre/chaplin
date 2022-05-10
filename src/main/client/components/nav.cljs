@@ -24,7 +24,7 @@
               :class "underline hover:text-blue-350"} "Copyright"]]
     [:li [:a {:href "https://shanghai.nyu.edu/academics/library/policy",
               :target "_blank",
-              :class "underline hover:text-blue-350"} "Policy"]]
+              :class "underline hover:text-blue-350"} "Policies"]]
     [:li [:a {:href "https://library.nyu.edu/nyu-returns/collections-access/#scanning",
               :target "_blank",
               :class "underline hover:text-blue-350"} "Scanning"]]
