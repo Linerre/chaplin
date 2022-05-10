@@ -1,11 +1,7 @@
 (ns client.pages.about
   "About page for the site."
   (:require
-   [reagent.core :as r]
-   [reagent.dom :as rdom]
-   [client.components.nav :as nav]
-   [client.components.header :as header]
-   [client.components.footer :as footer]))
+   [client.components.header :as header]))
 
 (def ^:private background
   "Since the outbreak of COVID-19, NYU Shanghai library has seen an increasing demand for scan of book chapters or  pages.")
@@ -41,25 +37,24 @@
 (defn about-para
   "Paragraphs on the about page."
   [txt]
-  [:p.w-near.pl-8.mx-auto.my-2
+  [:p.w-full.mx-auto.my-2.px-1
     txt])
 
 (defn about-page
   "The frame holding content for the about page."
   []
-  [:div#app-about.w-screen
-   [:div.w-meet.flex.flex-col.justify-center.py-2.px-8.mx-auto.mb-6
+  [:div#app-about.w-full
+   [:div.w-meet.lg:w-near.flex.flex-col.justify-center.py-2.px-2.mx-auto.mb-6
     [header/about-header "Motivation"]
     [about-para background]
     [about-para reasons]
     [about-para problem]
-    [:ul.list-disc.w-near.pl-16.mx-auto.my-1
+    [:ul.list-disc.w-near.pl-4.mx-auto.my-1
      (for [cha challenges]
        ^{:key cha}
        [:li.normal cha])]
     [about-para aim]]
-   [:div.w-meet.flex.flex-col.justify-center.py-2.px-8.mx-auto.mb-6
-    [header/about-header "Acknowledgements"]
+   [:div.w-meet.flex.flex-col.justify-center.py-2.px-2.mx-auto.mb-6
+    [header/about-header "Thanks"]
     [about-para thanks-jade]
-    [about-para thanks-tianshu]]
-   [footer/footer-frame "About" quo-long]])
+    [about-para thanks-tianshu]]])
