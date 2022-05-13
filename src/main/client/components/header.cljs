@@ -17,7 +17,7 @@
    [:div.w-full.py-2.my-4.flex.justify-center.gap-x-2
     [:i.fi-page.ml-2]
     [:span.pb-1.border-b-4.border-red-650
-     "Find scanned PDF chapters, sections, or pages"]]])
+     "Search across your scanned chapters"]]])
 
 (defn about-header
   "Header for about page."

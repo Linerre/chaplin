@@ -4,7 +4,7 @@
 (defn footer-frame
   "Footer that holds quotation, copyright and misc info."
   [quo]
-  [:footer#main-footer.h-fit.w-full.mt-auto.pb-2.bg-green-750
+  [:footer#main-footer.h-fit.w-full.pb-2.bg-green-750
    [:div.w-near.mb-4.mx-auto.py-4
     [:p.w-triq.mx-auto.text-center.text-sm
      [:span.italic.text-slate-50 quo]]]
