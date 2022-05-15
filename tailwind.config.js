@@ -3,10 +3,15 @@ module.exports = {
     "./src/main/**/*.cljs",
     "./src/test/**/*.cljs"],
   theme: {
-    screens: {
-      'tb': '680px',
-    },
     extend: {
+      lineHeight: {
+        'spacious': 3,
+      },
+
+      screens: {
+        'tb': '680px',
+      },
+
       spacing: {
         '22': '5.5rem',
         'quar' : '25%',
