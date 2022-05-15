@@ -45,7 +45,7 @@
 (re-frame/reg-sub
  :search/input-change ; its name
  (fn [db _]
-   (:clue db)))       ; listener fn only cares the :clue
+   (:clue db)))       ; listener fn that only cares the :clue
 
 (re-frame/reg-sub
  :search/part-sel
