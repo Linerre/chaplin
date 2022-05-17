@@ -34,7 +34,7 @@
   []
   [:label.w-full.mx-auto.relative.block
    [:span.sr-only "Search"]
-   [:span.absolute.inset-y-0.left-4.flex.items-center
+   [:span.inset-y-0.left-4.flex.items-center
     [:i.fi-magnifying-glass.text-slate-300]]
    [:input.bg-white.w-full.border.border-slate-300.rounded-full.py-2.pl-9.pr-3.shadow-sm.focus:outline-none.focus:border-yellow-450.focus:ring-yellow-450.focus:ring-1.mx-auto
     ;; w-full.leading-spacious.outline-0.border-none.background-none
@@ -57,12 +57,5 @@
   [:form#main-search.w-half.my-4.p-4.flex.justify-center.mx-auto
    {:action "/result",
     :method "GET"}
-   ;; [select-dropdwon]
-   [search-box]
-   ;; [search-btn]
-   ;; [:div>span
-   ;;  (let [ipt @(subscribe [:search/input-change])
-   ;;        sel @(subscribe [:search/part-sel])]
-   ;;    (str "Looking for the " sel " of " ipt))]
-   ]
+   [search-box]]
   )

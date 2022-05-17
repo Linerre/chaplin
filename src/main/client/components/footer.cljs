@@ -3,11 +3,11 @@
 
 (defn footer-frame
   "Footer that holds quotation, copyright and misc info."
-  [quo]
-  [:footer#main-footer.h-fit.w-full.pb-2.bg-green-750
-   [:div.w-near.mb-4.mx-auto.py-4
-    [:p.w-triq.mx-auto.text-center.text-sm
-     [:span.italic.text-slate-50 quo]]]
+  []
+  [:footer#main-footer.h-fit.w-full.py-2.bg-green-750.absolute.bottom-0
+   ;; [:div.w-full.md:w-near.mb-4.mx-auto.py-4
+   ;;  [:p.w-full.mx-auto.text-center.text-sm
+   ;;   [:span.italic.text-slate-50 quo]]]
    [:div.flex.flex-col.justify-center.items-center.pb-1.tb:items-end.tb:flex-row
     [:p.flex-1.text-left.ml-4.text-white.text-sm
      [:span "Copyright © 2022 Leon Lin"]]
