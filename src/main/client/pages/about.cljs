@@ -1,8 +1,9 @@
 (ns client.pages.about
   "About page for the site."
   (:require
+   [client.components.nav :refer [top-nav]]
    [client.components.header :refer [about-header]]
-   ;; [client.components.footer :as footer]
+   [client.components.footer :refer [footer-frame]]
    ))
 
 (def ^:private background
@@ -24,7 +25,7 @@
   "This project aims to solve the above problem.")
 
 (def ^:private thanks-jade
-  "I would like to express my appreciation to Jade, the student worker at NYU Shanghai Library, for her invaluable contribution to the database of this application. At the initial stage of this project, she tirelessly and manually loaded hundreds of entries into a spreadsheet which later functioned as the main source of the database. This project would have been impossible without her effort and dedication.")
+  "I would like to express my appreciation to Jade, the student worker at NYU Shanghai Library, for her invaluable contribution to the database of this application. At the initial stage of this project, she loaded hundreds of entries into the master spreadsheet which later functioned as the main source of the database. This project would have been impossible without her effort and dedication.")
 
 (def ^:private thanks-tianshu
   "I would also like to thank Tianshu. His advice on the selection of tech stack for this project has been a great souce of help and inspiration.")
@@ -41,8 +42,11 @@
 (defn about-page
   "The frame holding content for the about page."
   []
-  [:div#app-about.flex-auto.grow.w-full.h-full
-   [:div.w-near.md:w-meet.lg:w-half.flex.flex-col.justify-center.p-4.mx-auto
+  [:div.flex.flex-col.w-screen.h-screen
+   [top-nav]
+
+   ;; motivation
+ [:div.w-near.md:w-meet.lg:w-half.flex.flex-col.justify-center.p-4.mx-auto
     [about-header "Motivation"]
     [about-para background]
     [about-para reasons]
@@ -52,8 +56,14 @@
        ^{:key cha}
        [:li.normal cha])]
     [about-para aim]]
-[:div.w-near.md:w-meet.lg:w-half.flex.flex-col.justify-center.py-2.px-2.mx-auto.mb-6
-     [about-header "Thanks"]
-     [about-para thanks-jade]
-     [about-para thanks-tianshu]]
-      ])
+
+   ;; thanks
+   [:div.w-near.md:w-meet.lg:w-half.flex.flex-col.justify-center.py-2.px-2.mx-auto.mb-6
+    [about-header "Thanks"]
+    [about-para thanks-jade]
+    [about-para thanks-tianshu]]
+
+   ;; footer
+   [footer-frame "about"]
+   ]
+  )

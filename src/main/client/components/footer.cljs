@@ -3,8 +3,9 @@
 
 (defn footer-frame
   "Footer that holds quotation, copyright and misc info."
-  []
-  [:footer#main-footer.h-fit.w-full.py-2.bg-green-750.absolute.bottom-0
+  [page]
+  [:footer.h-fit.w-full.py-2.bg-green-750
+   {:class (if (= "home" page) "absolute bottom-0" "")}
    ;; [:div.w-full.md:w-near.mb-4.mx-auto.py-4
    ;;  [:p.w-full.mx-auto.text-center.text-sm
    ;;   [:span.italic.text-slate-50 quo]]]

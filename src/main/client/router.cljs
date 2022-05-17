@@ -62,11 +62,5 @@
   (let [current-route @(subscribe [:router/current-route])
         view (or (get-in current-route [:data :view])
                  index-page)]
-    [:div#app.w-screen.min-h-screen.relative
-     [top-nav :home :about]
-     ;; [:h1 "Why my site doesn't work?!"]
-     [view current-route]
-     ;; (when current-route ;;   )
-     [footer-frame]]
-    )
-  )
+    [view current-route]
+    ))

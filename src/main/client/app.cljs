@@ -1,8 +1,6 @@
 (ns client.app
   "The core namespace, the entry point of this application."
   (:require
-   [ajax.core :refer [POST GET]]
-   [goog.dom :as gdom]
    [reagent.dom :as rdom]
    [re-frame.core :as re-frame]
    [client.router :as router]
