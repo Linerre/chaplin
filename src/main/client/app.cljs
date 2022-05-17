@@ -11,7 +11,7 @@
    [client.subs.router]))
 
 (defn mount [& args]
-  (rdom/render router/router-component
+  (rdom/render [router/router-component]
                (.getElementById js/document "app-mnt-pnt")))
 
 (defn -main [& args]
