@@ -43,7 +43,7 @@
   "The frame holding content for the about page."
   []
   [:div.flex.flex-col.w-screen.h-screen
-   [top-nav]
+   [top-nav "about"]
 
    ;; motivation
  [:div.w-near.md:w-meet.lg:w-half.flex.flex-col.justify-center.p-4.mx-auto
