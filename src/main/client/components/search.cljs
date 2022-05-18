@@ -32,9 +32,9 @@
 (defn search-box
   "Search box for user input, accepting title, ISBN, author and barcode."
   []
-  [:label.w-full.mx-auto.relative.block
+  [:label.relative.block
    [:span.sr-only "Search"]
-   [:span.inset-y-0.left-4.flex.items-center
+   [:span.absolute.inset-y-0.left-0.pl-4.flex.items-center
     [:i.fi-magnifying-glass.text-slate-300]]
    [:input.bg-white.w-full.border.border-slate-300.rounded-full.py-2.pl-9.pr-3.shadow-sm.focus:outline-none.focus:border-yellow-450.focus:ring-yellow-450.focus:ring-1.mx-auto
     ;; w-full.leading-spacious.outline-0.border-none.background-none
@@ -54,7 +54,7 @@
 (defn search-frame
   "Search box frame"
   []
-  [:form#main-search.w-half.my-4.p-4.flex.justify-center.mx-auto
+  [:form#search.w-half.my-4.p-4.mx-auto
    {:action "/result",
     :method "GET"}
    [search-box]]

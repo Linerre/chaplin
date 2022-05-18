@@ -10,14 +10,14 @@
    ;;  [:p.w-full.mx-auto.text-center.text-sm
    ;;   [:span.italic.text-slate-50 quo]]]
    [:div.flex.flex-col.justify-center.items-center.pb-1.tb:items-end.tb:flex-row
-    [:p.flex-1.text-left.ml-4.text-white.text-sm
+    [:p.flex-1.text-left.ml-4.text-white.text-xs.sm:text-sm
      [:span "Copyright © 2022 Leon Lin"]]
     [:div.flex-1.flex.flex-col.justify-center
-     [:p.mx-auto.text-center.text-white.text-sm
+     [:p.mx-auto.text-center.text-white.text-xs.sm:text-sm
       [:span "Special thanks to Jade"]]
-     [:p.text-center.text-white.text-sm
+     [:p.text-center.text-white.text-xs.sm:text-sm
       "Built with "
-      [:a.text-white.no-underline.hover:underline
+      [:a.text-white.no-underline.hover:underline.text-xs.sm:text-sm
        {:href "https://clojure.org/index",
         :target "_blank"}
        "Clojure(Script)"]]]

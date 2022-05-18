@@ -7,21 +7,22 @@
 (defn index-header
   "Header for index page."
   []
-  [:header.my-4
+  [:header.mt-10
    [:div.w-full.p-2.flex.items-center.justify-center
-    [:span.text-5xl.z-10 "Chap"]
-    [:img.h-22.-ml-6.-mr-8.z-0
+    [:span.text-3xl.sm:text-5xl.z-10 "Chap"]
+    [:img.h-12.-ml-3.-mr-4.sm:h-22.sm:-ml-6.sm:-mr-8.z-0
      {:alt "stick icon",
       :src "img/stick-icon.svg"}]
-    [:span.text-5xl.z-10 "in"]]
-   [:div.w-full.py-2.my-2.flex.justify-center.gap-x-2
-    [:i.fi-page.ml-2]
-    [:span.pb-1.border-b-4.border-red-650
-     "Search across your scanned chapters"]]])
+    [:span.text-3xl.sm:text-5xl.z-10 "in"]]
+   [:div.w-full.py-2.my-2.flex.justify-center.items-center.gap-x-2.mx-auto
+
+    [:span.p-1.border-b-4.border-red-650.text-purple-950.text-sm.sm:text-base
+     "Search across your scanned chapters"
+     [:i.fi-page.ml-2]]]])
 
 (defn about-header
   "Header for about page."
   [txt]
   [:header.w-fit.mx-auto.my-2
-   [:h2.pr-1.py-1.text-2xl.font-bold txt]
+   [:h2.py-1.px-2.text-lg.sm:text-2xl.font-bold.text-purple-950 txt]
    [:div.h-1.w-full.bg-red-650]])

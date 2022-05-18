@@ -36,7 +36,7 @@
 (defn about-para
   "Paragraphs on the about page."
   [txt]
-  [:p.w-full.mx-auto.my-1.px-1
+  [:p.w-full.mx-auto.my-1.px-1.text-sm.sm:text-base
     txt])
 
 (defn about-page
@@ -51,7 +51,7 @@
     [about-para background]
     [about-para reasons]
     [about-para problem]
-    [:ul.list-disc.w-near.pl-4.mx-auto.my-1
+    [:ul.list-disc.w-near.pl-4.mx-auto.my-1.text-sm.sm:text-base
      (for [cha challenges]
        ^{:key cha}
        [:li.normal cha])]
