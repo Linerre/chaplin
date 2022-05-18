@@ -14,7 +14,7 @@
      {:alt "stick icon",
       :src "img/stick-icon.svg"}]
     [:span.text-3xl.sm:text-5xl.z-10 "in"]]
-   [:div.w-full.py-2.my-2.flex.justify-center.items-center.gap-x-2.mx-auto
+   [:div.w-full.py-2.my-1.sm:my-2.flex.justify-center.items-center.gap-x-2.mx-auto
 
     [:span.p-1.border-b-4.border-red-650.text-purple-950.text-sm.sm:text-base
      "Search across your scanned chapters"
