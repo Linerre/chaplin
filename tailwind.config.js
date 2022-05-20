@@ -4,6 +4,10 @@ module.exports = {
     "./src/test/**/*.cljs"],
   theme: {
     extend: {
+      borderWidth: {
+        DEFAULT: '1px',
+        '1': '1px',
+      },
       lineHeight: {
         'spacious': 3,
       },
@@ -11,10 +15,12 @@ module.exports = {
       screens: {
         'tb': '680px',
       },
-
+      maxWidth: {
+      },
       spacing: {
         '22': '5.5rem',
         'quar' : '25%',
+        'thir' : '35%',
         'half' : '50%',
         'meet' : '60%',
         'triq' : '75%',
