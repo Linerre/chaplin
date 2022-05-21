@@ -6,7 +6,8 @@
    [client.router :as router]
    [client.events.search]
    [client.events.router]
-   [client.subs.router]))
+   [client.subs.router]
+   [client.subs.search]))
 
 (defn mount [& args]
   (rdom/render [router/router-component]
@@ -15,6 +16,7 @@
 (defn -main [& args]
   ;; (re-frame/clear-subscription-cache!)
   (re-frame/dispatch-sync [:router/initialize-router])
+  (re-frame/dispatch-sync [:search/initialize-query])
   (router/init-router)
   (mount)
   (.log js/console "App started!"))
@@ -22,6 +24,7 @@
 (defn after-load [& args]
   (re-frame/clear-subscription-cache!)
   (re-frame/dispatch-sync [:router/initialize-router])
+  (re-frame/dispatch-sync [:search/initialize-query])
   (router/init-router)
   (mount)
   (.log js/console "Page refreshed!"))

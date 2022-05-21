@@ -1,53 +1,59 @@
 (ns client.events.search
-  "Events when users click on the search button.
-  The events registered under this name spaces
-  will be dispatched in components.search"
+  "Events for the search box"
   (:require
-   [reagent.core :as r]
+   [ajax.core :as ajax]
+   [day8.re-frame.http-fx]
    [re-frame.core :as re-frame]))
 
 
 ;; -- Initialize ---------------------------------
-;; This init-db event is an exception
-;; It initializes the app-db ONLY
-;; A view fn is needed to render the initial data!
-(re-frame/reg-event-db
- :search/init-db
- (fn [_ _]
-   {:clue "", ;; user input in the search box
-    :part  "chapter"})) ;; part type: chapter, section ...
-
 ;; The map returned will be loaded into `app-db'.
-;; `app-db' is defined by re-frame. It's basically a r/atom
+;; `app-db' is defined by re-frame, basically a r/atom
 ;; At the very begining, `app-db' just containings {}
+;; Router event will initialize the db first
+;; so this initilizer will add to it
+(re-frame/reg-event-db
+ :search/initialize-query
+ (fn [db _]
+   (-> db
+       (assoc :user-input nil)    ;; user query text
+       (assoc :part-type nil))    ;; chapter, section, ...
+   ))
 
 ;; -- Event Handlers -----------------------------
-;; Register event handlers with `reg-event-db'
-;; `reg-event-db' can have ONE side effect only
-;; To have many, use reg-event-fx
 (re-frame/reg-event-db
- :search/input
- (fn [db [_ usr-input]]
-   (assoc db :clue usr-input)))
+ :search/user-input                     ; when user types in the search box
+ (fn [db [_ input]]
+   (.log js/console "User is typing ... ")
+   (assoc db :user-input input)))
+
+(re-frame/reg-event-fx
+ :search/user-query                     ; when user presses `Enter' key
+ (fn [{db :db} [_ user-q]]
+   {:http-xhrio {:method          :get,
+                 :uri             "/search",
+                 ;; :uri             "https://reqres.in/api/users?page=2",
+                 :timeout         8000,
+                 :params          {:q user-q},
+                 ;; :format          (ajax/text-request-format),
+                 :response-format (ajax/json-response-format {:keywords? true}),
+                 :on-success      [:search/good-response],
+                 :on-failure      [:search/bad-response]},
+    :db  (assoc db :loading? true)
+    :dispatch [:router/eh-push-state :search]
+    }
+   ))
 
 (re-frame/reg-event-db
- :search/part
- (fn [db [_ usr-sel]]
-   (assoc db :part usr-sel)))
+ :search/good-response
+ (fn [db [_ response]]
+   (-> db
+    (assoc :loading? false)
+    (assoc :data (js->clj response)))))
 
 (re-frame/reg-event-db
- :search/click
- (fn [_ _]
-   (.alert js/window "You clicked the button!")))
-
-;; -- query --------------------------------------
-;; Think of query fns as event listeners
-(re-frame/reg-sub
- :search/input-change ; its name
- (fn [db _]
-   (:clue db)))       ; listener fn that only cares the :clue
-
-(re-frame/reg-sub
- :search/part-sel
- (fn [db _]
-   (:part db)))
+ :search/bad-response
+ (fn [db [_ response]]
+   (-> db
+    (assoc :loading? false)
+    (assoc :bad-response (str "Bad Response!")))))
