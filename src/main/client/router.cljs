@@ -5,10 +5,13 @@
    [client.components.footer :refer [footer-frame]]
    [client.pages.about :refer [about-page]]
    [client.pages.index :refer [index-page]]
+   [client.pages.result :refer [result-page]]
    [re-frame.core :refer [dispatch subscribe]]
    [reitit.core :as rc]
    [reitit.frontend :as rf]
    [reitit.frontend.easy :as rfe]
+   [reitit.coercion.schema :as rsc]
+   [schema.core :as s]
    ))
 
 ;; frontend routes
@@ -36,6 +39,15 @@
                :stop  (fn [& params]
                         (.log js/console "Leaving the about."))}]}]
 
+   ["/search" {:name :search,
+               :view (fn [params] [result-page params]),
+               :params {:query {:q s/Str}},
+               :controllers
+               [{:parameters {:query [:q]},
+                 :start (fn [& params]
+                          (.log js/console "Returning search result")),
+                 :stop (fn [& params]
+                         (.log js/console "Leaving result"))}]}]
    ])
 
 ;; router fn optionally accepts a 3rd arg
@@ -59,8 +71,8 @@
 ;; But there must be the index page first, then users can try
 ;; to click and navigate through the top bar.
 (defn router-component []
-  (let [current-route @(subscribe [:router/current-route])
-        view (or (get-in current-route [:data :view])
+  (let [route @(subscribe [:router/current-route])
+        view (or (get-in route [:data :view])
                  index-page)]
-    [view current-route]
+    [view (:query-params route)]
     ))
