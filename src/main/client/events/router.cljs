@@ -8,31 +8,34 @@
 
 ;; On the top navigation bar there will be two (or more)
 ;; clickable links. Thus, the click event will trigger
-;; event handlers registered here for frontend navigation
-;; But first, there must be a router hloding all the navs
+;; event handlers registered here for frontend routing.
+;; But first, there must be a router holding all the routes.
 (re-frame/reg-event-db
  :router/initialize-router
  (fn [db _]
    (assoc db :current-route nil)))
 
-;; 2. it causes side-effect of pushing a new entry to the
-;; hisotry stack of broswer. This effect requires no db
+;; The side-effect is to push a new entry to the history
+;; stack of broswer. This effect requires no db.
 ;; `reg-fx' allows users to register their own side-effects
 ;; handlers.
-;; The id :router/push-state will be later used in a event
-;; registry that returns effects: a map.
-;; 1st, register the fx to be used
+;; First, register the fx to be used
 (re-frame/reg-fx
- :router/fx-push-state        ; reg the fx
+ :router/fx-push-state                  ; reg the fx
  (fn [route]
-   (apply rfe/push-state route)))
+   (apply rfe/push-state route)))       ; `apply' means `route' is a list
 
-;; 2nd, register the event handler that causes the above effect
-;; NOTE: This is the real event handler, so dispatch this!
+;; Second, register the event handler that causes the above side effect.
+;; NOTE:
+;; 1. This is the real event handler, so dispatch this!
+;; 2. Reitit `push-state': (push-state route path-params query-params)
+;;    meaning there could be more than one args passed to event dispatcher.
+;;    But the event handler just receive an event and its arg(s). So the
+;;    arg(s) better to be made into a list in such cases.
 (re-frame/reg-event-fx
  :router/eh-push-state
- (fn [_ [_ & route]] ;just pushing to history
-   {:router/fx-push-state route}))
+ (fn [_ [_ & route]]                    ; `&' makes `route' into a list
+   {:router/fx-push-state route}))      ; just pushing to history
 
 (re-frame/reg-event-db
 :router/navigated
@@ -40,4 +43,5 @@
     (let [old-match   (:current-route db)
           controllers (rfc/apply-controllers (:controllers old-match) new-match)]
       (assoc db :current-route (assoc new-match :controllers controllers)))))
+
 ;; Last, in client.subs.router reg a sub to the changes in db

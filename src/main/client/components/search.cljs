@@ -19,13 +19,8 @@
      :on-change #(dispatch [:search/user-input (-> % .-target .-value)]),
      :on-key-press (fn [e]
                      (let [user-q (subscribe [:search/current-input])]
-
                        (if (= "Enter" (.-key e))
-                         (do
-                           ;; (.preventDefault e)
-                           (dispatch [:search/user-query @user-q]))
-                         ))
-
+                         (dispatch [:search/user-query nil @user-q])))
                      )}]
    ])
 
