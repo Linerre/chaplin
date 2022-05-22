@@ -5,4 +5,4 @@
 (re-frame/reg-sub
  :search/current-input
  (fn [db]
-   (:user-query db)))
+   (:user-input db)))
