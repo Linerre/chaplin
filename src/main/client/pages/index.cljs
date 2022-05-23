@@ -5,7 +5,8 @@
    [client.components.header :refer [index-header]]
    [client.components.search :refer [search-frame]]
    [client.components.footer :refer [footer-frame]]
-   ))
+   [reitit.frontend.easy :as rfe]
+   [re-frame.core :as re-frame]))
 
 ;; A page should be independent of any other pages
 ;; A page should return a view fn for router to use
@@ -16,4 +17,5 @@
    [top-nav]
    [index-header]
    [search-frame]
-   [footer-frame "home"]])
+   [footer-frame "home"]]
+  )

@@ -1,7 +1,8 @@
 (ns client.pages.result
   (:require
    [client.components.icon :as icon]
-   [client.components.search :refer [search-frame]]))
+   [client.components.search :refer [search-frame]]
+   [re-frame.core :as re-frame]))
 
 (defn result-page [match]
   ;; q(uery) comes from route parameters
@@ -41,5 +42,7 @@
        (for [x (take 10 (range 50))]
          ^{:key x}
          [:li x])]
+
+      [:p @(re-frame/subscribe [:search/query-result])]
       ]])
   )

@@ -20,8 +20,7 @@
    ["/search" {:name :search,
                :get {:parameters {:query {:q string?}},
                      :responses {200 {:body {:result string?}}},
-                     :handler (fn [{{{:keys [q]} :query} :parameters}]
-                                (hand/test-result q)),
+                     :handler hand/test-result,
                      :middleware [[parameters-middleware]]},
                ;; :responses {:status 200, :body {:page
                ;;                                 }}
