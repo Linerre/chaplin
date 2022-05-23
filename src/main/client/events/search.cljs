@@ -32,24 +32,25 @@
  (fn [{db :db} [_ user-q]]
    {:http-xhrio {:method          :get,
                  :uri             "/search",
-                 ;; :uri             "https://reqres.in/api/users?page=2",
                  :timeout         8000,
                  :params          {:q user-q},
-                 ;; :format          (ajax/text-request-format),
-                 :response-format (ajax/json-response-format {:keywords? true}),
+                 :format          (ajax/url-request-format),
+                 :response-format (ajax/ring-response-format),
                  :on-success      [:search/good-response],
                  :on-failure      [:search/bad-response]},
     :db  (assoc db :loading? true)
-    :dispatch [:router/eh-push-state :search]
+    :dispatch [:router/eh-push-state :search nil {:q user-q}]
     }
    ))
 
 (re-frame/reg-event-db
  :search/good-response
- (fn [db [_ response]]
-   (-> db
+ (fn [db [_ resp]]                  ; response is implicitly passed to the
+   (-> db                           ; on-success dispatcher
     (assoc :loading? false)
-    (assoc :data (js->clj response)))))
+    (assoc :data (:body resp))
+    )
+   ))
 
 (re-frame/reg-event-db
  :search/bad-response
@@ -57,3 +58,9 @@
    (-> db
     (assoc :loading? false)
     (assoc :bad-response (str "Bad Response!")))))
+
+(comment
+  (ajax/GET "/search" {:params {:q "google"},
+                       :format (ajax/url-request-format),
+                       ;; :response-format (ajax/text-request-format)
+                       :handler #(.log js/console %)}))

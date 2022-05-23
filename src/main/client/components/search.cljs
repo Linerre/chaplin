@@ -18,9 +18,10 @@
      :placeholder "Search for title, barcode or ISBN ... ",
      :on-change #(dispatch [:search/user-input (-> % .-target .-value)]),
      :on-key-press (fn [e]
-                     (let [user-q (subscribe [:search/current-input])]
-                       (if (= "Enter" (.-key e))
-                         (dispatch [:search/user-query nil @user-q])))
+                     (if (= "Enter" (.-key e))
+                       (let [user-q (subscribe [:search/current-input])]
+                         (dispatch [:search/user-query @user-q]))
+                       )
                      )}]
    ])
 

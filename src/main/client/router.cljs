@@ -41,7 +41,7 @@
 
    ["/search" {:name :search,
                :view (fn [params] [result-page params]),
-               :params {:query {:q s/Str}},
+               :parameters {:query {:q s/Str}},
                :controllers
                [{:parameters {:query [:q]},
                  :start (fn [& params]
