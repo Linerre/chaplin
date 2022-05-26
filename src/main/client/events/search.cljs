@@ -16,8 +16,13 @@
  :search/initialize-query
  (fn [db _]
    (-> db
-       (assoc :user-input nil)    ;; user query text
-       (assoc :part-type nil))    ;; chapter, section, ...
+       (assoc :user-input nil)          ; user query text
+       (assoc :checked {:chapter false,
+                        :section false,
+                        :pages   false,
+                        :lesson  false,
+                        :part    false})
+       (assoc :filter-on? false))
    ))
 
 ;; -- Event Handlers -----------------------------
@@ -27,6 +32,16 @@
    (.log js/console "User is typing ... ")
    (assoc db :user-input input)))
 
+;; fake one for development ------------------------
+(re-frame/reg-event-fx
+ :search/user-query-dev                     ; when user presses `Enter' key
+ (fn [{db :db} [_ user-q]]
+   {:db  (assoc db :user-query user-q)
+    :dispatch [:router/eh-push-state :search nil {:q user-q}]
+    }
+   ))
+
+;; real one for production -------------------------
 (re-frame/reg-event-fx
  :search/user-query                     ; when user presses `Enter' key
  (fn [{db :db} [_ user-q]]

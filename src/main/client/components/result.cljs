@@ -15,18 +15,21 @@
      :value part-type,
      :on-change (fn []
                   (dispatch [:result/checked-type part-type])
-                  (dispatch [:result/enabled-filter]))
+                  (dispatch [:result/enabled-filter])
+                  )
      :checked @(subscribe [:result/checked? part-type])}]
    [:label.capitalize {:for part-type} (cstr/replace (str part-type) #":" "")]]
   )
 
 (defn result-item
-  "Result item component, based on part-type"
+  "Result item component, based on :chapter, :section, and so on."
   [part-type]
   [:div.w-near.h-fit.my-2.mx-2.p-1.flex.items-center.gap-x-2.border-2.border-sky-500
-   {:class (fn [] (if-let [display? @(subscribe [:search/checked?])]
-                    ""
-                    "hidden"))}
+   {:class (if @(subscribe [:result/filter-on?])
+             (if @(subscribe [:result/checked? part-type])
+               ""                    ; checked
+               "hidden")             ; unchecked
+             "")}                    ; filter disabled, all displayed
    ;; cover
    [:div.shrink-0.grow-0.flex
     [:img.w-36.h-48
@@ -42,25 +45,25 @@
     [:p                                 ; ISBN
      [:span.flex.gap-x-4.items-center
       [:i.fi-align-justify.text-lg.rotate-90]
-      [:span "ISBN"]]]
+      [:span "9781234560001"]]]
     [:p                                 ; barcode
      [:span.flex.gap-x-4.items-center
       [:i.fi-price-tag.text-lg]
-      [:span "Barcdoe"]]]
+      [:span "31124056788904"]]]
     [:p                                 ; part type
      [:span.flex.gap-x-4.items-center
-      [:i.fi-page-export-pdf.text-lg]
-      [:span part-type]]]
+      [:i.fi-page.text-lg]
+      [:span.capitalize
+       {:class (if @(subscribe [:result/checked? part-type])
+                 "bg-yellow-300")}
+       part-type]]]
     [:p                                 ; drive url
      [:a.flex.gap-x-4.items-center
       [:i.fi-social-drive.text-lg]
-      ;; [:img.w-4.h-4
-      ;;  {:src "/img/google-drive.png"
-      ;;   :alt "Google Drive Icon"}]
-      [:span "Open in Google Drive"]]]
+      [:span.-ml-px "Open in Google Drive"]]]
     [:p                                 ; bobcat url
      [:a.flex.gap-x-4.items-center
       [:i.fi-link.text-lg]
-      [:span "Open in BobCat"]]]
+      [:span.-ml-px "Open in BobCat"]]]
     ]
    ])

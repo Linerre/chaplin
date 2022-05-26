@@ -6,8 +6,8 @@
  :result/enabled-filter
  (fn [db _]
    (if (some true? (vals (:checked db))) ; as long as on checkbox checked
-     (assoc db :enabled-filter? true)    ; filter enabled
-     (assoc db :enabled-filter? false))  ; otherwise disabled
+     (assoc db :filter-on? true)    ; filter enabled
+     (assoc db :filter-on? false))  ; otherwise disabled
    ))
 
 
