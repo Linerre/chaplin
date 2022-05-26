@@ -4,10 +4,13 @@
    [reagent.dom :as rdom]
    [re-frame.core :as re-frame]
    [client.router :as router]
+   [client.events.result]
    [client.events.search]
    [client.events.router]
+   [client.subs.search]
+   [client.subs.result]
    [client.subs.router]
-   [client.subs.search]))
+   ))
 
 (defn mount [& args]
   (rdom/render [router/router-component]
