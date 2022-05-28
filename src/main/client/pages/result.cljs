@@ -26,7 +26,7 @@
       ]
 
      ;; body = sidebar + result list
-     [:div.w-full                       ; body outer frame
+     [:div.w-full.bg-slate-25           ; body outer frame
       [:div.w-near.mx-auto.flex         ; body inner frame
        ;; sidebar
        [:div.flex-initial.grow-0.w-quar.max-w-thir.p-2.border-r-2
