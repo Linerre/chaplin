@@ -4,7 +4,7 @@
    [re-frame.core :refer [dispatch subscribe]]))
 
 (defn search-box
-  "Search box for user input, accepting title, ISBN, author and barcode."
+  "Search box component."
   []
   [:label.relative.block
    [:span.sr-only "Search"]
@@ -20,17 +20,19 @@
      :on-key-press (fn [e]
                      (if (= "Enter" (.-key e))
                        (let [user-q (subscribe [:search/current-input])]
-                         (dispatch [:search/user-query @user-q]))
+                         (dispatch [:search/user-query-dev @user-q]))
                        )
-                     )}]
+                     )
+     }]
    ])
 
-;; in {:attr "val"}, "val" can be :val
-;; but :val will be converted to "val" for DOM anyway
 
 (defn search-frame
   "Search box frame"
-  []
-  [:div#search.w-full.sm:w-near.md:w-triq.lg:w-half.my-4.p-4.mx-auto
+  [page]
+  [:div#search.w-full.mx-auto
+   {:class (if (= "result" page)
+             "py-4 md:w-triq"
+             "w-full sm:w-near md:w-triq lg:w-half my-4 p-4")}
    [search-box]]
   )

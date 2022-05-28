@@ -41,7 +41,6 @@
         [result/result-item :lesson]
         [result/result-item :part]
         ]
-       ;; [:p (str "User is looking for " @u-query)]
        ]
 
 
