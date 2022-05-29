@@ -30,8 +30,8 @@
 (def ^:private thanks-tianshu
   "I would also like to thank Tianshu. His advice on the selection of tech stack for this project has been a great souce of help and inspiration.")
 
-(def ^:private quo-long
-  "I feel I am privileged to express a hope. The hope is this: that we shall have peace throughout the world, that we shall abolish wars and settle all international differences at the conference table, that we shall abolish all atom and hydrogen bombs before they abolish us. The future of the modern world demands modern thinking. Therefore, let us use the full force of our intelligence instead of obsolete homicidal methods in settling our international differences.")
+(def ^:private thanks-alpox
+  "Lastly, I wish to acknowledge the help provided by Elias Bernhaut (alpox in Clojure Slack) for his/her reviewing my code and pinning down the bugs on the frontend routing! That saved me from painful confusion and frustration.")
 
 (defn about-para
   "Paragraphs on the about page."
@@ -61,7 +61,8 @@
    [:div.w-near.md:w-meet.lg:w-half.flex.flex-col.justify-center.py-2.px-2.mx-auto.mb-6
     [about-header "Thanks"]
     [about-para thanks-jade]
-    [about-para thanks-tianshu]]
+    [about-para thanks-tianshu]
+    [about-para thanks-alpox]]
 
    ;; footer
    [footer-frame "about"]
