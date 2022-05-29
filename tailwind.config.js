@@ -35,6 +35,8 @@ module.exports = {
       colors: {
         slate: {
           25: '#fcfcfc',
+          350: '#e5e7eb',
+          950: '#2a3439',
         },
         green: {
           750: '#0b7261'
