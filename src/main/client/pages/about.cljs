@@ -1,5 +1,4 @@
 (ns client.pages.about
-  "About page for the site."
   (:require
    [client.components.nav :refer [top-nav]]
    [client.components.header :refer [about-header]]
@@ -30,7 +29,7 @@
   "I would also like to thank Tianshu. His advice on the selection of tech stack for this project has been a great souce of help and inspiration.")
 
 (def ^:private thanks-alpox
-  "Lastly, I wish to acknowledge the help provided by Elias Bernhaut (alpox in Clojure Slack) for his/her reviewing my code and pinning down the bugs on the frontend routing! That saved me from painful confusion and frustration.")
+  "Lastly, I wish to acknowledge the help provided by Elias Bernhaut (alpox in Clojure Slack) for reviewing my code and pinning down the bugs on the frontend routing! That saved me from painful confusion and frustration.")
 
 (defn about-para
   "Paragraphs on the about page."
@@ -40,11 +39,11 @@
 
 (defn about-page
   []
-  [:div.w-screen.h-screen.flex.flex-col.overflow-hidden
+  [:div.w-screen.h-screen.flex.flex-col
    [top-nav "about"]
 
    ;; motivation
-   [:div.h-full.flex.flex-col.overflow-scroll
+   [:div.flex-1.flex.flex-col
     [:div.w-near.md:w-meet.lg:w-half.flex.flex-col.justify-center.p-4.mx-auto
      [about-header "Motivation"]
      [about-para background]
@@ -57,7 +56,7 @@
      [about-para aim]]
 
     ;; thanks
-    [:div.w-near.md:w-meet.lg:w-half.flex.flex-col.justify-center.p-4.mx-auto.mb-6
+    [:div.w-near.md:w-meet.lg:w-half.flex.flex-col.justify-center.p-4.mx-auto
      [about-header "Thanks"]
      [about-para thanks-jade]
      [about-para thanks-tianshu]

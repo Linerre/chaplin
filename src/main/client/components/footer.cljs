@@ -8,9 +8,9 @@
   [page]
   [:footer.h-fit.w-full.py-2
    {:class (case page
-             "home"  "bg-green-750 text-white absolute bottom-0"
+             "home"  "bg-green-750 text-white"
              "about" "bg-purple-950 text-white"
-             "bg-slate-25 text-slate-500 absolute bottom-0")}
+             "result" "mt-10 bg-slate-25 text-slate-500")}
    [:div.flex.flex-col.justify-center.items-center.pb-1.tb:items-end.tb:flex-row
     [:div.order-2.sm:order-1.flex-1.text-center.sm:text-left.sm:ml-4.text-xs.sm:text-sm
      [:span "Copyright © 2022 Leon Lin"]]

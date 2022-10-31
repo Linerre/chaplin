@@ -8,7 +8,7 @@
 
 (defn result-page []
   (let [u-query (re-frame/subscribe [:search/user-query])]
-    [:div.bg-slate-25.relative
+    [:div.w-screen.h-screen.bg-slate-25.flex.flex-col.relative
      [:div.border-b-2.flex.px-2.mt-2.sm:px-16.bg-white
       ;; icon
       [icon/chaplin-icon]
@@ -22,16 +22,12 @@
           ^{:key f} [result/result-filter f])]]]
 
      ;; body = sidebar + result list
-     [:div.w-near.mx-auto.overflow-hidden        ; body inner frame
-
-       ;; pass keywords
-       [:div.h-full.overflow-scroll
-        [result/result-item :chapter]
-        [result/result-item :section]
-        [result/result-item :pages]
-        [result/result-item :lesson]
-        [result/result-item :part]]]
-
+     [:div.flex-1.w-near.mx-auto
+      [result/result-item :chapter]
+      [result/result-item :section]
+      [result/result-item :pages]
+      [result/result-item :lesson]
+      [result/result-item :part]]
 
      ;; footer
      [footer-frame "result"]]))

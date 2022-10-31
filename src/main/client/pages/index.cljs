@@ -22,5 +22,5 @@
     [index-description]
     [search-frame]]
 
-   [:div.w-full.flex-none.h-20
+   [:div.w-full.flex-none
     [footer-frame "home"]]])
