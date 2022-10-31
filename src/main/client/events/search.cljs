@@ -2,7 +2,7 @@
   "Events for the search box"
   (:require
    [ajax.core :as ajax]
-   [day8.re-frame.http-fx]
+   ;; [day8.re-frame.http-fx]
    [re-frame.core :as re-frame]))
 
 

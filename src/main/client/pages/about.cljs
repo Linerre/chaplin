@@ -3,8 +3,7 @@
   (:require
    [client.components.nav :refer [top-nav]]
    [client.components.header :refer [about-header]]
-   [client.components.footer :refer [footer-frame]]
-   ))
+   [client.components.footer :refer [footer-frame]]))
 
 (def ^:private background
   "Since the outbreak of COVID-19, NYU Shanghai library has seen an increasing demand for scan of book chapters or  pages.")
@@ -40,31 +39,28 @@
     txt])
 
 (defn about-page
-  "The frame holding content for the about page."
   []
-  [:div.flex.flex-col.w-screen.h-screen
+  [:div.w-screen.h-screen.flex.flex-col.overflow-hidden
    [top-nav "about"]
 
    ;; motivation
- [:div.w-near.md:w-meet.lg:w-half.flex.flex-col.justify-center.p-4.mx-auto
-    [about-header "Motivation"]
-    [about-para background]
-    [about-para reasons]
-    [about-para problem]
-    [:ul.list-disc.w-near.pl-4.mx-auto.my-1.text-sm.sm:text-base
-     (for [cha challenges]
-       ^{:key cha}
-       [:li.normal cha])]
-    [about-para aim]]
+   [:div.h-full.flex.flex-col.overflow-scroll
+    [:div.w-near.md:w-meet.lg:w-half.flex.flex-col.justify-center.p-4.mx-auto
+     [about-header "Motivation"]
+     [about-para background]
+     [about-para reasons]
+     [about-para problem]
+     [:ul.list-disc.w-near.pl-4.mx-auto.my-1.text-sm.sm:text-base
+      (for [cha challenges]
+        ^{:key cha}
+        [:li.normal cha])]
+     [about-para aim]]
 
-   ;; thanks
-   [:div.w-near.md:w-meet.lg:w-half.flex.flex-col.justify-center.py-2.px-2.mx-auto.mb-6
-    [about-header "Thanks"]
-    [about-para thanks-jade]
-    [about-para thanks-tianshu]
-    [about-para thanks-alpox]]
-
-   ;; footer
-   [footer-frame "about"]
-   ]
-  )
+    ;; thanks
+    [:div.w-near.md:w-meet.lg:w-half.flex.flex-col.justify-center.p-4.mx-auto.mb-6
+     [about-header "Thanks"]
+     [about-para thanks-jade]
+     [about-para thanks-tianshu]
+     [about-para thanks-alpox]]]
+    ;; footer
+   [footer-frame "about"]])

@@ -13,9 +13,8 @@
 (defn index-page
   "Index page."
   []
-  [:div#app.min-h-screen.w-screen.relative
+  [:div.h-screen.w-screen.relative.overflow-hidden
    [top-nav]
    [index-header]
    [search-frame]
-   [footer-frame "home"]]
-  )
+   [footer-frame "home"]])

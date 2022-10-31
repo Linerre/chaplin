@@ -7,8 +7,8 @@
 (defn index-header
   "Header for index page."
   []
-  [:header.mt-10
-   [:div.w-full.p-2.flex.items-center.justify-center
+  [:div.my-10.grid.place-items-center
+   [:div.p-2.flex.items-center.justify-center
     [:span.text-3xl.sm:text-5xl.z-10 "Chap"]
     [:img.h-12.-ml-3.-mr-4.sm:h-22.sm:-ml-6.sm:-mr-8.z-0
      {:alt "stick icon",
