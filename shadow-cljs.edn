@@ -1,18 +1,12 @@
-{:deps {:aliases [:client :test]},
+{:deps {:aliases [:client]},
  :builds
- {:client {:target      :browser,
-           :devtools    {:after-load client.app/after-load,
-                         :watch-dir  "resources/public",
-                         :http-port  9226,
-                         :http-root  "resources/public",
-                         :preloads   [day8.re-frame-10x.preload]},
-           :output-dir  "resources/public/js",
-           :asset-path  "/js/app",
-           :modules     {:app {:init-fn client.app/-main}},
-           :dev         {:compiler-options
-                         {:closure-defines
-                          {re-frame.trace.trace-enabled?        true
-                           day8.re-frame.tracing.trace-enabled? true
-                           }}}
-           :repl-pprint true}},
- :nrepl  {:init-ns user}}
+ {:client
+  {:target      :browser,
+   :devtools    {:after-load client.app/after-load,
+                 :watch-dir  "resources/public",
+                 :http-port  9321,
+                 :http-root  "resources/public"},
+   :output-dir  "resources/public/js",
+   :asset-path  "/js/app",
+   :modules     {:app {:init-fn client.app/-main}},
+   :repl-pprint true}}}
