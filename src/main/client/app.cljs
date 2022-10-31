@@ -9,14 +9,13 @@
    [client.events.router]
    [client.subs.search]
    [client.subs.result]
-   [client.subs.router]
-   ))
+   [client.subs.router]))
 
-(defn mount [& args]
+(defn mount []
   (rdom/render [router/router-component]
-               (.getElementById js/document "app-mnt-pnt")))
+               (.getElementById js/document "app")))
 
-(defn -main [& args]
+(defn -main []
   ;; (re-frame/clear-subscription-cache!)
   (re-frame/dispatch-sync [:router/initialize-router])
   (re-frame/dispatch-sync [:search/initialize-query])
@@ -24,7 +23,7 @@
   (mount)
   (.log js/console "App started!"))
 
-(defn after-load [& args]
+(defn after-load []
   (re-frame/clear-subscription-cache!)
   (re-frame/dispatch-sync [:router/initialize-router])
   (re-frame/dispatch-sync [:search/initialize-query])

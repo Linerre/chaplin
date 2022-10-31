@@ -2,7 +2,7 @@
   "Index page."
   (:require
    [client.components.nav :refer [top-nav]]
-   [client.components.header :refer [index-header]]
+   [client.components.header :refer [index-description]]
    [client.components.search :refer [search-frame]]
    [client.components.footer :refer [footer-frame]]
    [reitit.frontend.easy :as rfe]
@@ -13,8 +13,14 @@
 (defn index-page
   "Index page."
   []
-  [:div.h-screen.w-screen.relative.overflow-hidden
-   [top-nav]
-   [index-header]
-   [search-frame]
-   [footer-frame "home"]])
+  [:div.h-screen.w-screen.flex.flex-col.justify-center.relative.overflow-hidden
+   [:div.w-full.h-20.flex-none.flex.justify-center.items-ceneter
+    [top-nav]]
+
+   [:div.flex-1.py-10.flex.flex-col.justify-start.items-center
+    [:div.h-20]
+    [index-description]
+    [search-frame]]
+
+   [:div.w-full.flex-none.h-20
+    [footer-frame "home"]]])

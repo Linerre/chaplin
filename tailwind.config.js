@@ -11,7 +11,9 @@ module.exports = {
       lineHeight: {
         'spacious': 3,
       },
-
+      height: {
+        '4-5': "80%"
+      },
       screens: {
         'tb': '680px',
       },
