@@ -1,18 +1,18 @@
 * Chaplin
 A single-page web application for library staff to search for the scanned PDF files.
 
-This is a work still *in slow progress*, as my daily job requires me to focus on the business.
+This is a work *in slow progress*, as my daily job requires me to focus on the business.
 
 * Motivation
-Since the outbreak of COVID-19, the library I'm working in has seen a great increase in demand for chapters/pages scan. As many courses move online or the shipping channels are significantly disrupted, scanning a small part of a book for courses is faster and more flexible.
+Since the outbreak of COVID-19, the library I was working at has seen a great increase in demand for chapters/pages scan. As many courses move online or the shipping channels are significantly disrupted, scanning a small part of a book for courses is faster and more flexible.
 
-Yet as the number of the scans also increase, it becomes harder for the library staff to check:
+Yet as the number of the scans also increases, it becomes harder for the library staff to check:
 1. which chapter (or part) from which book has been scanned
 2. where is a specific scan stored in Google Drive
 
 This project aims to solve the problem.
 * Disclaimer
-As to the allowed scanning range, the library follows such guidelines as the following:
+As far as the copyright, and the scanned files, is concerned, the library follows such guidelines as the following:
 1. up to 2 chapters from a book can be scanned;
-2. up to 20% from a book can be scanned
-3. whichever of the above comes first, we have to stop scanning
+2. up to 20% from a book can be scanned;
+3. whichever of the above comes first, we have to stop scanning.
