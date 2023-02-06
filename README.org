@@ -1,5 +1,8 @@
 * Chaplin
 A single-page web application for library staff to search for the scanned PDF files.
+
+This is a work still *in slow progress*, as my daily job requires me to focus on the business.
+
 * Motivation
 Since the outbreak of COVID-19, the library I'm working in has seen a great increase in demand for chapters/pages scan. As many courses move online or the shipping channels are significantly disrupted, scanning a small part of a book for courses is faster and more flexible.
 
